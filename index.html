@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Menu</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/bootstrap.js"></script>
+</head>
+<body>
+    <header style="position: sticky; top: 0; z-index: 1000;" class="bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark main-nav" style="position: sticky; top: 0; z-index: 1000;">
+
+        <div class="container-fluid d-flex justify-content-between align-items-center px-4">
+            <div style="cursor: pointer;">
+                <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="d-flex align-items-center justify-content-center bg-light text-white rounded-circle" style="width: 40px; height: 40px;">
+                    <i class="fa-solid fa-shop fs-5 " style="color:rgb(131, 110, 110);"></i>
+                </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel"></h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-flex flex-column align-items-center">
+                        <img  style="width:150px;transition: all 0.3s ease;" src="img/Cuscen Small Business Lite.png" alt="">
+                        <div class="d-flex  align-items-center w-100 bg-dark text-white p-3 mt-3 rounded">
+                            <a href="https://www.facebook.com" target="_blank" class="text-decoration-none text-white m-2">
+                                <i class="fab fa-facebook fs-3"></i>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank" class="text-decoration-none text-white m-2">
+                                <i class="fab fa-instagram fs-3"></i>
+                            </a>
+                            <a href="https://www.youtube.com" target="_blank" class="text-decoration-none text-white m-2">
+                                <i class="fab fa-youtube fs-3"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/cuscen" target="_blank" class="text-decoration-none text-white m-2">
+                                <i class="fab fa-linkedin fs-3"></i>
+                            </a>
+                            <a href="" target="_blank" class="text-decoration-none text-white m-2">
+                                <i class="fas fa-globe fs-3"></i>
+                            </a>
+                            <a href="" target="_blank" class="text-decoration-none text-white m-2">
+                                <i class="fa-brands fa-tiktok fs-3"></i>
+                            </a>
+                            <a href="" target="_blank" class="text-decoration-none text-white m-2">
+                                <i class="fa-brands fa-telegram fs-3"></i>
+                            </a>
+                            
+                        </div >
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex align-items-center ">
+                <img id="siteLogo" class="logo" src="img/Cuscen Small Business Lite.png" alt="" style="width:150px; transition: all 0.3s ease;">
+
+            </div>
+            <div>
+                <img style="width:40px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/2560px-Flag_of_Cambodia.svg.png" alt="">
+            </div>
+        </div>
+    </nav>
+    <div class="container  " >
+        <div class="search-container mt-2">
+            <form class="form">
+                <label for="search">
+                    <input class="input" type="text" required="" placeholder="SEARCH WITHIN THE MENU" id="search">
+                    <div class="fancy-bg"></div>
+                    <div class="search">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
+                            <g>
+                                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <button class="close-btn" type="reset">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </label>
+            </form>
+        </div>
+        <div class="category mt-3 p-1" id="categoryBar">
+            <ul>
+                <li>
+                    <a href="#coffee"> 
+                        <span class="menu-icon">☕</span>
+                        <span class="menu-text">ICE COFFEE & TEA</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#khmer_food"> 
+                        <span class="menu-icon">🍜</span>
+                        <span class="menu-text">KHMER FOOD</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#drink"> 
+                        <span class="menu-icon">🍺</span>
+                        <span class="menu-text">DRINK</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#western_food"> 
+                        <span class="menu-icon">🍝</span>
+                        <span class="menu-text">WESTERN FOOD</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#soft_drink"> 
+                        <span class="menu-icon">🥤</span>
+                        <span class="menu-text">SOFT DRINK</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#soup"> 
+                        <span class="menu-icon">🍲</span>
+                        <span class="menu-text">SOUP</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#salad"> 
+                        <span class="menu-icon">🥗</span>
+                        <span class="menu-text">SALAD</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#dessert"> 
+                        <span class="menu-icon">🍰</span>
+                        <span class="menu-text">DESSERT</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#vegatable">
+                        <span class="menu-icon">🥦</span>
+                        <span class="menu-text">VEGETABLE</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    </header>
+    <div class="container mt-2">
+        <div class="banner" id="banner">
+            <img src="img/banner.jpg" alt="">
+        </div>
+    </div>
+    <div class="container mt-4">
+        <section id="coffee" class="menu-section">
+            <h4 class="text-center mb-4 ">ICE COFFEE & TEA</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <div class="popular-tag">
+                                    Promotion
+                                </div>
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                                <div class="discount-box">
+                                    30%
+                                </div>
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="khmer_food" class="menu-section mt-4">
+            <h4 class="text-center mb-4">KHMER FOOD</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="drink" class="menu-section mt-4">
+            <h4 class="text-center mb-4">DRINK</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="western_food" class="menu-section mt-4">
+            <h4 class="text-center mb-4">WESTERN FOOD</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="soft_drink" class="menu-section mt-4">
+            <h4 class="text-center mb-4">SOFT DRINK</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="soup" class="menu-section mt-4">
+            <h4 class="text-center mb-4">SOUP</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="breakfast" class="menu-section mt-4">
+            <h4 class="text-center mb-4">BREAKFAST</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="salad" class="menu-section mt-4">
+            <h4 class="text-center mb-4">SALAD</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="dessert" class="menu-section mt-4">
+            <h4 class="text-center mb-4">DESSERT</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="vegatable" class="menu-section mt-4">
+            <h4 class="text-center mb-4">VEGETABLE</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-box">
+                                <img src="img/1 (2).jpg" class="card-img-top" alt="Food Item 1">
+                            </div>
+                            <h5 class="card-title">Food </h5>
+                            <p class="card-text">Description</p>
+                            <p class="card-text"><strong>Price: $10.00</strong></p>
+                            <button class="btn-add float-right" ><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="footer">
+            <a href="#banner">
+                <div class="box-arrow">
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+    <script>
+  
+</script>
+
+</body>
+<script src="script.js"></script>
+
+
+
+</html>

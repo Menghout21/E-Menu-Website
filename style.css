@@ -266,11 +266,11 @@ input:-webkit-autofill:active {
         width: 100%;
     } 
 }
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
     .menu-text{
       display: none;
     }
-}
+} */
 
 .discount-box {
     position: absolute;

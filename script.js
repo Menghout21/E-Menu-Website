@@ -44,6 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // start function add to cart
+const addItemBar = document.getElementById('add-item-bar');
+const itemCountDisplay = document.getElementById('item-count');
+addItemBar.style.display = 'none'; 
+let activeCards = 0;
+
 document.querySelectorAll('.card').forEach(function(card) {
     const addBtn = card.querySelector('.btn-add');
     const qtySelector = card.querySelector('.quantity-selector');
@@ -51,30 +56,55 @@ document.querySelectorAll('.card').forEach(function(card) {
     const decreaseBtn = card.querySelector('.decrease');
     const qtyValue = card.querySelector('.qty-value');
 
-    let qty = 1;
+    let qty = 0;
+    let isActive = false; // Track if this card is currently added
 
     addBtn.addEventListener('click', function () {
-      addBtn.style.display = 'none';
-      qtySelector.style.display = 'flex';
+        qty = 1;
+        isActive = true;
+        qtyValue.textContent = qty;
+        activeCards++;
+        updateItemCount();
+
+        addBtn.style.display = 'none';
+        qtySelector.style.display = 'flex';
+
+        if (addItemBar) {
+        addItemBar.style.display = 'block';
+        }
     });
 
     increaseBtn.addEventListener('click', function () {
-      qty++;
-      qtyValue.textContent = qty;
+        qty++;
+        qtyValue.textContent = qty;
     });
 
     decreaseBtn.addEventListener('click', function () {
-      if (qty > 1) {
+        if (qty > 1) {
         qty--;
         qtyValue.textContent = qty;
-      } else {
-        qty = 1;
+        } else {
+        qty = 0;
+        qtyValue.textContent = qty;
         qtySelector.style.display = 'none';
         addBtn.style.display = 'flex';
-        qtyValue.textContent = qty;
-      }
+
+        if (isActive) {
+            activeCards--;
+            isActive = false;
+            updateItemCount();
+
+            if (activeCards === 0 && addItemBar) {
+            addItemBar.style.display = 'none';
+            }
+        }
+        }
     });
 });
+
+function updateItemCount() {
+    itemCountDisplay.textContent = activeCards;
+}
 
 // end add to cart function
 

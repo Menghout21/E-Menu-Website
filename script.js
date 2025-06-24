@@ -78,3 +78,26 @@ document.querySelectorAll('.card').forEach(function(card) {
 
 // end add to cart function
 
+
+// Language switcher functionality
+const flags = [
+    { src: "img/cambodia_flag.png", alt: "Khmer", code: "km" },
+    { src: "img/english_flag.png", alt: "English", code: "en" },
+    { src: "img/china_flag.png", alt: "Chinese", code: "zh" }
+];
+
+let currentIndex = 0;
+
+function cycleLanguage() {
+    currentIndex = (currentIndex + 1) % flags.length;
+    const flag = document.getElementById("language-flag");
+    flag.src = flags[currentIndex].src;
+    flag.alt = flags[currentIndex].alt;
+
+    // Optional: store selected language in localStorage
+    localStorage.setItem("lang", flags[currentIndex].code);
+
+    // Optional: trigger language change logic here
+    console.log("Language set to:", flags[currentIndex].code);
+}
+

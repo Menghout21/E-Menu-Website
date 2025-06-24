@@ -167,7 +167,7 @@ input:-webkit-autofill:active {
 }
 .category {
     width: 95%;
-       
+    overflow: auto;  
     white-space: nowrap;   
     -ms-overflow-style: none;  
     scrollbar-width: none;   
@@ -391,12 +391,12 @@ input:-webkit-autofill:active {
       
     }
 }
-@media screen and (max-width: 1242px) {
+/* @media screen and (max-width: 1242px) {
     .add-item-bar{
-      width: 100%;
+      width: 95%;
       
     }
-}
+} */
 .add-items{
   width: 100%;
   height: 100%;

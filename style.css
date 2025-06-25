@@ -193,7 +193,7 @@ input:-webkit-autofill:active {
     border-radius: 50px;
     text-decoration: none;
     font-size: 14px;
-    transition: background-color 0.5s ease;
+    transition: background-color 1s ease, color 1s ease, border-color 1s ease;
     white-space: nowrap;
     border: #ffffff 1px solid; 
     font-weight: 700;
@@ -201,7 +201,7 @@ input:-webkit-autofill:active {
 .category ul li a.active {
   background-color: white;
   border-color: #059941;
-  transition: 0.3s ease;
+  /* transition: 1s ease; */
 }
 
 .menu-section {
@@ -220,7 +220,7 @@ input:-webkit-autofill:active {
     height: 40px;
     border-radius: 50%;
     /* background-color: #b4a629; */
-    border: 1px solid rgb(207, 159, 99);
+    border: 1px solid #059941;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -228,7 +228,7 @@ input:-webkit-autofill:active {
     
 }
 .footer a{
-    color: rgb(207, 159, 99);
+    color: #059941;
     text-decoration: none;
 }
 .float-right {
@@ -297,18 +297,27 @@ input:-webkit-autofill:active {
 }
 
 .main-nav {
-    transition: height 0.3s ease;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* smoother easing */
     height: 100px;
 }
 .main-nav.shrink {
     height: 70px !important;
 }
+
 #siteLogo {
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* smoother easing */
 }
 #siteLogo.shrink {
     width: 100px !important;
 }
+
+#categoryBar ul li a {
+    transition: padding 0.3s ease, font-size 0.3s ease;
+}
+#categoryBar ul li {
+    transition: margin 0.3s ease;
+}
+
 #categoryBar.shrink ul li a {
     padding: 6px 14px;
     font-size: 13px;
@@ -316,6 +325,7 @@ input:-webkit-autofill:active {
 #categoryBar.shrink ul li {
     margin: 0 6px;
 }
+
 
 .btn-add {
   width: 30px;

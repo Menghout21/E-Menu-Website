@@ -1,15 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll(".category a");
     const sections = document.querySelectorAll("section");
+
     navLinks.forEach(link => {
         link.addEventListener("click", function () {
             navLinks.forEach(l => l.classList.remove("active"));
             this.classList.add("active");
+            this.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
         });
     });
 
     window.addEventListener("scroll", function () {
-        let scrollPosition = window.scrollY + 230; 
+        let scrollPosition = window.scrollY + 230;
 
         sections.forEach(section => {
             const id = section.getAttribute("id");
@@ -18,27 +20,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 navLinks.forEach(link => {
-                    link.classList.remove("active");
                     if (link.getAttribute("href") === "#" + id) {
-                        link.classList.add("active");
+                        if (!link.classList.contains("active")) {
+                            navLinks.forEach(l => l.classList.remove("active"));
+                            link.classList.add("active");
+
+                            // Scroll to show the active tab if overflowed
+                            link.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+                        }
                     }
                 });
             }
         });
     });
-    window.addEventListener("scroll", function () {
+
+    let lastScrollTop = 0;
+    let isShrunk = false;
+
+    function handleScroll() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const logo = document.getElementById("siteLogo");
         const nav = document.querySelector(".main-nav");
         const category = document.getElementById("categoryBar");
 
-        if (window.scrollY > 50) {
+        if (scrollTop > 50 && !isShrunk) {
             logo.classList.add("shrink");
             nav.classList.add("shrink");
             category.classList.add("shrink");
-        } else {
+            isShrunk = true;
+        } else if (scrollTop <= 50 && isShrunk) {
             logo.classList.remove("shrink");
             nav.classList.remove("shrink");
             category.classList.remove("shrink");
+            isShrunk = false;
+        }
+    }
+
+    let ticking = false;
+
+    window.addEventListener("scroll", function () {
+        if (!ticking) {
+            window.requestAnimationFrame(function () {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 });

@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const nav = document.querySelector(".main-nav");
         const category = document.getElementById("categoryBar");
 
-        if (scrollTop > 50 && !isShrunk) {
+        if (scrollTop > 80 && !isShrunk) {
             logo.classList.add("shrink");
             nav.classList.add("shrink");
             category.classList.add("shrink");
             isShrunk = true;
-        } else if (scrollTop <= 50 && isShrunk) {
+        } else if (scrollTop <= 40 && isShrunk) {
             logo.classList.remove("shrink");
             nav.classList.remove("shrink");
             category.classList.remove("shrink");
@@ -71,65 +71,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // start function add to cart
 const addItemBar = document.getElementById('add-item-bar');
-const itemCountDisplay = document.getElementById('item-count');
-addItemBar.style.display = 'none'; 
-let activeCards = 0;
+  const itemCountDisplay = document.getElementById('item-count');
+  const totalMoneyDisplay = document.querySelector('.total-money');
 
-document.querySelectorAll('.card').forEach(function(card) {
+  addItemBar.style.display = 'none';
+  let activeCards = 0;
+  let totalPrice = 0;
+
+  document.querySelectorAll('.card').forEach(function(card) {
     const addBtn = card.querySelector('.btn-add');
     const qtySelector = card.querySelector('.quantity-selector');
     const increaseBtn = card.querySelector('.increase');
     const decreaseBtn = card.querySelector('.decrease');
     const qtyValue = card.querySelector('.qty-value');
+    const unitPriceEl = card.querySelector('.unit-price');
 
     let qty = 0;
-    let isActive = false; // Track if this card is currently added
+    let isActive = false;
+    const unitPrice = parseFloat(unitPriceEl.textContent);
 
     addBtn.addEventListener('click', function () {
-        qty = 1;
-        isActive = true;
-        qtyValue.textContent = qty;
-        activeCards++;
-        updateItemCount();
+      qty = 1;
+      isActive = true;
+      qtyValue.textContent = qty;
+      activeCards++;
+      totalPrice += unitPrice;
+      updateUI();
 
-        addBtn.style.display = 'none';
-        qtySelector.style.display = 'flex';
-
-        if (addItemBar) {
-        addItemBar.style.display = 'block';
-        }
+      addBtn.style.display = 'none';
+      qtySelector.style.display = 'flex';
     });
 
     increaseBtn.addEventListener('click', function () {
-        qty++;
-        qtyValue.textContent = qty;
+      qty++;
+      qtyValue.textContent = qty;
+      totalPrice += unitPrice;
+      updateUI();
     });
 
     decreaseBtn.addEventListener('click', function () {
-        if (qty > 1) {
+      if (qty > 1) {
         qty--;
         qtyValue.textContent = qty;
-        } else {
+        totalPrice -= unitPrice;
+        updateUI();
+      } else {
+        // Remove from cart
         qty = 0;
         qtyValue.textContent = qty;
         qtySelector.style.display = 'none';
         addBtn.style.display = 'flex';
 
         if (isActive) {
-            activeCards--;
-            isActive = false;
-            updateItemCount();
+          activeCards--;
+          isActive = false;
+          totalPrice -= unitPrice;
+          updateUI();
 
-            if (activeCards === 0 && addItemBar) {
+          if (activeCards === 0 && addItemBar) {
             addItemBar.style.display = 'none';
-            }
+          }
         }
-        }
+      }
     });
 });
 
-function updateItemCount() {
-    itemCountDisplay.textContent = activeCards;
+function updateUI() {
+  itemCountDisplay.textContent = activeCards;
+  totalMoneyDisplay.textContent = '$' + totalPrice.toFixed(2);
+  if (activeCards > 0) {
+    addItemBar.style.display = 'block';
+  }
 }
 
 // end add to cart function

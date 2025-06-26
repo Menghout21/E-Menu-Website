@@ -430,5 +430,8 @@ input:-webkit-autofill:active {
 .aa{
   position: relative;
 }
-
+.text-price{
+  font-size: 20px ;
+  font-weight: 600;
+}
 

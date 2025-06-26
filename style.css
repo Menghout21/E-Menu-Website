@@ -1,6 +1,9 @@
 body{
     background: #ffffff !important;
 }
+html{
+  scroll-behavior: smooth;
+}
 *{
     scrollbar-width: none !important;         
     -ms-overflow-style: none !important;       

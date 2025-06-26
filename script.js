@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const nav = document.querySelector(".main-nav");
         const category = document.getElementById("categoryBar");
 
-        if (scrollTop > 50 && !isShrunk) {
+        if (scrollTop > 80 && !isShrunk) {
             logo.classList.add("shrink");
             nav.classList.add("shrink");
             category.classList.add("shrink");
             isShrunk = true;
-        } else if (scrollTop <= 30 && isShrunk) {
+        } else if (scrollTop <= 40 && isShrunk) {
             logo.classList.remove("shrink");
             nav.classList.remove("shrink");
             category.classList.remove("shrink");

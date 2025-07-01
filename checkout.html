@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckOut</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header style="position: sticky; top: 0; z-index: 1000;" class="bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark main-nav" style="position: sticky; top: 0; z-index: 1000;">
+
+            <div class="container-fluid d-flex justify-content-between align-items-center px-4">
+                <div style="cursor: pointer;">
+                    <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="d-flex align-items-center justify-content-center bg-light text-white rounded-circle" style="width: 40px; height: 40px;">
+                        <i class="fa-solid fa-shop fs-5 " style="color:rgb(131, 110, 110);"></i>
+                    </div>
+                    <div class="offcanvas offcanvas-end" id="offcanvasRight" tabindex="-1" inert>
+                        <div class="offcanvas-header">
+                            <h5 id="offcanvasRightLabel"></h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body d-flex flex-column align-items-center">
+                            <img  style="width:150px;transition: all 0.3s ease;" src="img/Cuscen Small Business Lite.png" alt="">
+                            <div class="d-flex  align-items-center w-100 bg-dark text-white p-3 mt-3 rounded">
+                                <a href="https://www.facebook.com" target="_blank" class="text-decoration-none text-white m-2">
+                                    <i class="fab fa-facebook fs-3"></i>
+                                </a>
+                                <a href="https://www.instagram.com" target="_blank" class="text-decoration-none text-white m-2">
+                                    <i class="fab fa-instagram fs-3"></i>
+                                </a>
+                                <a href="https://www.youtube.com" target="_blank" class="text-decoration-none text-white m-2">
+                                    <i class="fab fa-youtube fs-3"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/cuscen" target="_blank" class="text-decoration-none text-white m-2">
+                                    <i class="fab fa-linkedin fs-3"></i>
+                                </a>
+                                <a href="" target="_blank" class="text-decoration-none text-white m-2">
+                                    <i class="fas fa-globe fs-3"></i>
+                                </a>
+                                <a href="" target="_blank" class="text-decoration-none text-white m-2">
+                                    <i class="fa-brands fa-tiktok fs-3"></i>
+                                </a>
+                                <a href="" target="_blank" class="text-decoration-none text-white m-2">
+                                    <i class="fa-brands fa-telegram fs-3"></i>
+                                </a>
+                                
+                            </div >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-center ">
+                    <img id="siteLogo" class="logo" src="img/Cuscen Small Business Lite.png" alt="" style="width:150px; transition: all 0.3s ease;">
+
+                </div>
+                <div class="language-selector d-flex align-items-center cursor-pointer " onclick="cycleLanguage()">
+                    <img id="language-flag" style="width:40px; " src="img/cambodia_flag.png" alt="Khmer">
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="order-summary card mt-2 p-2">
+            <div class="title d-flex justify-content-center align-items-center ">
+                <h2 class="text-center">Order Summary</h2>
+            </div>
+            <div class="total-items d-flex">
+                <h4>Total Items</h4>
+                <h4 class="ms-2">(1)</h4>
+            </div>
+            <div class="items-detail">
+                <div class="box-item">
+                    <div class="name-price">
+                        <h5 class="name">Product Name</h5>
+                        <h5 class="price">$10.00</h5>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="quantity-selector float-right me-2" >
+                            <button class="qty-btn decrease"><i class="fa-solid fa-minus"></i></button>
+                            <span class="qty-value">1</span>
+                            <button class="qty-btn increase"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <i class="fa-solid fa-trash fs-5 text-danger cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-summary mt-2">
+                <div class="subtotal d-flex justify-content-between">
+                    <h5>Payment Summary</h5>
+                </div>
+                <div class="total d-flex justify-content-between">
+                    <h5>Subtotal (1)</h5>
+                    <h5 class="total-price">$10.00</h5>
+                </div>
+            </div>
+            <div class="total-items d-flex mt-2">
+                
+                <h4 class="ms-1 fs-6"> <i class="fa-solid fa-credit-card"></i> Payment Method</h4>
+            </div>
+            <div class="payment-method">
+                
+            </div>
+            <div class="payment-method mt-2">
+                
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const flags = [
+        { src: "img/cambodia_flag.png", alt: "Khmer", code: "km" },
+        { src: "img/english_flag.png", alt: "English", code: "en" },
+        { src: "img/china_flag.png", alt: "Chinese", code: "zh" }
+    ];
+
+    let currentIndex = 0;
+
+    function cycleLanguage() {
+        currentIndex = (currentIndex + 1) % flags.length;
+        const flag = document.getElementById("language-flag");
+        flag.src = flags[currentIndex].src;
+        flag.alt = flags[currentIndex].alt;
+        localStorage.setItem("lang", flags[currentIndex].code);
+        console.log("Language set to:", flags[currentIndex].code);
+    }
+</script>
+<script src="bootstrap/bootstrap.js"></script>
+<script src="script.js"></script>
+</html>

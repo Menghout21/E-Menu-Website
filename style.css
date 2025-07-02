@@ -4,6 +4,9 @@ body{
 html{
   scroll-behavior: smooth;
 }
+:root{
+  --theme-color: #059941;
+}
 *{
     scrollbar-width: none !important;         
     -ms-overflow-style: none !important;       
@@ -163,6 +166,8 @@ input:-webkit-autofill:active {
     width: 100%;
     overflow: hidden;
     position: relative;
+    /* border: 1px solid #dadada;
+    border-radius: 10px; */
 }
 .image{
   width:100%;
@@ -170,6 +175,7 @@ input:-webkit-autofill:active {
 }
 .category {
     width: 95%;
+    margin: auto;
     overflow: auto;  
     white-space: nowrap;   
     -ms-overflow-style: none;  
@@ -203,7 +209,8 @@ input:-webkit-autofill:active {
 }
 .category ul li a.active {
   background-color: white;
-  border-color: #059941;
+  /* border-color: #059941; */
+  border-color: var(--theme-color);
   /* transition: 1s ease; */
 }
 
@@ -223,7 +230,7 @@ input:-webkit-autofill:active {
     height: 40px;
     border-radius: 50%;
     /* background-color: #b4a629; */
-    border: 1px solid #059941;
+    border: 1px solid var(--theme-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,7 +238,7 @@ input:-webkit-autofill:active {
     
 }
 .footer a{
-    color: #059941;
+    color: var(--theme-color);
     text-decoration: none;
 }
 .float-right {
@@ -282,8 +289,12 @@ input:-webkit-autofill:active {
     font-size: 15px;
     border-radius: 50px;
     z-index: 10;
-    bottom: 10px; 
-    right: 10px; 
+    bottom: 5px; 
+    right: 5px; 
+}
+.card-body {
+    padding: 10px;
+    position: relative;
 }
 .popular-tag{
     position: absolute;
@@ -297,6 +308,8 @@ input:-webkit-autofill:active {
     font-size: 10px;
     border-radius: 10px;
     z-index: 10;
+    top:5px;
+    left: 5px;
 }
 
 .main-nav {
@@ -415,7 +428,7 @@ input:-webkit-autofill:active {
   width: 100%;
   height: 100%;
   padding: 0 20px;
-  background-color: #059941;
+  background-color: var(--theme-color);
   border-radius: 50px;
 }
 .ordering , .item-count, .item-text, .total-money {
@@ -466,20 +479,23 @@ input:-webkit-autofill:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #059941;
+  background-color: var(--theme-color);
   border-radius: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   color: white;
+  text-align: center;
 }
 .payment-method{
   width:100%;
   height: 50px;
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
   align-items: center;
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
   border-radius: 10px;
   /* margin-top: 10px; */
-  color: #059941;
+  /* color: #059941; */
+  padding: 5px;
+  border: 1px solid #dadada;
 }
 

@@ -129,37 +129,20 @@
             
             <div class="d-flex justify-content-between align-items-center checkout-footer">
                 <div >
-                    <a href="index.html">
+                    <a href="#" onclick="history.back()" >
                         <div class="box-arrow">
                             <i class="fa-solid fa-chevron-left"></i>
                         </div>
                     </a>
                 </div>
                 <div class="checkout text-white d-flex justify-content-center align-items-center">
-                    <h4 class="text-white">Check Out</h4>
+                    Check Out
                 </div>
             </div>
         </div>
     </div>
 </body>
-<script>
-    const flags = [
-        { src: "img/cambodia_flag.png", alt: "Khmer", code: "km" },
-        { src: "img/english_flag.png", alt: "English", code: "en" },
-        { src: "img/china_flag.png", alt: "Chinese", code: "zh" }
-    ];
-
-    let currentIndex = 0;
-
-    function cycleLanguage() {
-        currentIndex = (currentIndex + 1) % flags.length;
-        const flag = document.getElementById("language-flag");
-        flag.src = flags[currentIndex].src;
-        flag.alt = flags[currentIndex].alt;
-        localStorage.setItem("lang", flags[currentIndex].code);
-        console.log("Language set to:", flags[currentIndex].code);
-    }
-</script>
 <script src="bootstrap/bootstrap.js"></script>
 <script src="script.js"></script>
+<script src="language-switcher.js"></script>
 </html>

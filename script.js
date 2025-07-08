@@ -75,13 +75,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const itemCountDisplay = document.getElementById('item-count');
     const totalMoneyDisplay = document.querySelector('.total-money');
 
-    let totalQuantity = 0;
-    let totalPrice = 0;
     let activeCard = null;
 
     addItemBar.style.display = 'none';
 
-    document.querySelectorAll('.card').forEach(function(card) {
+    // List of all cards
+    const allCards = document.querySelectorAll('.card');
+
+    function updateUI() {
+        let totalQuantity = 0;
+        let totalPrice = 0;
+
+        allCards.forEach((card) => {
+            const unitPrice = parseFloat(card.querySelector('.unit-price').textContent);
+            const qty = card._cartState.qty;
+
+            if (qty > 0) {
+                totalQuantity += 1; // Count only distinct items
+                totalPrice += qty * unitPrice;
+            }
+        });
+
+        itemCountDisplay.textContent = totalQuantity;
+        totalMoneyDisplay.textContent = '$' + totalPrice.toFixed(2);
+        addItemBar.style.display = totalQuantity > 0 ? 'block' : 'none';
+    }
+
+    allCards.forEach(function(card) {
         const addBtn = card.querySelector('.btn-add');
         const qtySelector = card.querySelector('.quantity-selector');
         const increaseBtn = card.querySelector('.increase');
@@ -91,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const addToCartBar = card.querySelector('.add-to-cart-bar');
         const showDetail = card.querySelector('.show-detail');
 
-        const unitPrice = parseFloat(unitPriceEl.textContent);
         let qty = 0;
 
         function showQtyUI() {
@@ -104,50 +123,42 @@ document.addEventListener("DOMContentLoaded", function () {
             qtySelector.style.display = 'none';
         }
 
-        function updateUI() {
-            itemCountDisplay.textContent = totalQuantity;
-            totalMoneyDisplay.textContent = '$' + totalPrice.toFixed(2);
-            if (totalQuantity > 0) {
-            addItemBar.style.display = 'block';
-            } else {
-            addItemBar.style.display = 'none';
+        function addToCart() {
+            if (qty === 0) {
+                qty = 1;
+                qtyValue.textContent = qty;
+                showQtyUI();
+                updateState();
             }
         }
 
-        function addToCart() {
-            if (qty === 0) {
-            qty = 1;
-            totalQuantity += 1;
-            totalPrice += unitPrice;
-            qtyValue.textContent = qty;
-            showQtyUI();
-            } else {
+        function increaseQty() {
             qty += 1;
-            totalQuantity += 1;
-            totalPrice += unitPrice;
             qtyValue.textContent = qty;
-            }
-            updateUI();
+            updateState();
         }
 
         function decreaseFromCart() {
             if (qty > 0) {
-            qty -= 1;
-            totalQuantity -= 1;
-            totalPrice -= unitPrice;
-            qtyValue.textContent = qty;
-            if (qty === 0) {
-                hideQtyUI();
+                qty -= 1;
+                qtyValue.textContent = qty;
+                if (qty === 0) {
+                    hideQtyUI();
+                }
+                updateState();
             }
+        }
+
+        function updateState() {
+            card._cartState.qty = qty;
             updateUI();
-            }
         }
 
         addBtn.addEventListener('click', addToCart);
         if (addToCartBar) {
             addToCartBar.addEventListener('click', addToCart);
         }
-        increaseBtn.addEventListener('click', addToCart);
+        increaseBtn.addEventListener('click', increaseQty);
         decreaseBtn.addEventListener('click', decreaseFromCart);
 
         showDetail.addEventListener('click', function () {
@@ -167,57 +178,39 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.show();
         });
 
-        // Save reference for later (per card)
+        // Save reference
         card._cartState = {
             get qty() { return qty; },
             set qty(v) { qty = v; }
         };
     });
 
-    // Handle modal Add to Cart
+    // Modal Add-to-Cart
     const modalAddToCartBar = document.querySelector('#productModal .add-to-cart-bar');
     modalAddToCartBar.addEventListener('click', function () {
-    if (activeCard) {
-        const addBtn = activeCard.querySelector('.btn-add');
-        const qtyValue = activeCard.querySelector('.qty-value');
-        const qtySelector = activeCard.querySelector('.quantity-selector');
-        const unitPrice = parseFloat(activeCard.querySelector('.unit-price').textContent);
+        if (activeCard) {
+            const addBtn = activeCard.querySelector('.btn-add');
+            const qtySelector = activeCard.querySelector('.quantity-selector');
+            const qtyValue = activeCard.querySelector('.qty-value');
+            const unitPrice = parseFloat(activeCard.querySelector('.unit-price').textContent);
 
-        // Get current quantity from the card's custom property
-        let currentQty = activeCard._cartState.qty;
+            let currentQty = activeCard._cartState.qty;
 
-        if (currentQty === 0) {
-        currentQty = 1;
-        activeCard._cartState.qty = 1;
-        totalQuantity += 1;
-        totalPrice += unitPrice;
-        qtyValue.textContent = 1;
-        addBtn.style.display = 'none';
-        qtySelector.style.display = 'flex';
-        } else {
-        currentQty += 1;
-        activeCard._cartState.qty = currentQty;
-        totalQuantity += 1;
-        totalPrice += unitPrice;
-        qtyValue.textContent = currentQty;
+            currentQty += 1;
+            activeCard._cartState.qty = currentQty;
+            qtyValue.textContent = currentQty;
+
+            addBtn.style.display = 'none';
+            qtySelector.style.display = 'flex';
+
+            updateUI();
         }
 
-        updateUI();
-    }
-
-    const modal = bootstrap.Modal.getInstance(document.getElementById("productModal"));
+        const modal = bootstrap.Modal.getInstance(document.getElementById("productModal"));
         if (modal) modal.hide();
     });
 
-    function updateUI() {
-        itemCountDisplay.textContent = totalQuantity;
-        totalMoneyDisplay.textContent = '$' + totalPrice.toFixed(2);
-        if (totalQuantity > 0) {
-            addItemBar.style.display = 'block';
-        } else {
-            addItemBar.style.display = 'none';
-        }
-    }
+
 
 
     // Language switcher

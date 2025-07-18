@@ -81,25 +81,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // List of all cards
     const allCards = document.querySelectorAll('.card');
-
     function updateUI() {
-        let totalQuantity = 0;
-        let totalPrice = 0;
+    let totalQuantity = 0;
+    let totalPrice = 0;
+    const cartItems = [];
 
-        allCards.forEach((card) => {
-            const unitPrice = parseFloat(card.querySelector('.unit-price').textContent);
-            const qty = card._cartState.qty;
+    allCards.forEach((card) => {
+        const unitPrice = parseFloat(card.querySelector('.unit-price').textContent);
+        const qty = card._cartState.qty;
 
-            if (qty > 0) {
-                totalQuantity += 1; // Count only distinct items
-                totalPrice += qty * unitPrice;
-            }
-        });
+        if (qty > 0) {
+            totalQuantity += 1;
+            totalPrice += qty * unitPrice;
 
-        itemCountDisplay.textContent = totalQuantity;
-        totalMoneyDisplay.textContent = '$' + totalPrice.toFixed(2);
-        addItemBar.style.display = totalQuantity > 0 ? 'block' : 'none';
-    }
+            const title = card.querySelector('.card-title').innerText;
+            cartItems.push({
+                title: title,
+                price: unitPrice,
+                qty: qty,
+                img: card.querySelector("img").getAttribute("src")
+            });
+        }
+    });
+
+    itemCountDisplay.textContent = totalQuantity;
+    totalMoneyDisplay.textContent = '$' + totalPrice.toFixed(2);
+    addItemBar.style.display = totalQuantity > 0 ? 'block' : 'none';
+
+    // Save to localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+}
 
     allCards.forEach(function(card) {
         const addBtn = card.querySelector('.btn-add');

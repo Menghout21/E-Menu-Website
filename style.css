@@ -525,7 +525,7 @@ input:-webkit-autofill:active {
   cursor: pointer;
 }
 .sub-total-bar{
-  width: 80%;
+  width: 90%;
   color: black;
   margin: auto;
   /* padding: 0px 10px ; */
@@ -539,7 +539,7 @@ input:-webkit-autofill:active {
   font-family: 'Roboto', sans-serif;
 }
 .checkout-footer{
-  width:80%;
+  width:90%;
   margin: auto;
 }
 .fa-chevron-left{
@@ -558,6 +558,13 @@ input:-webkit-autofill:active {
     }
     .checkout{
       width: 88%;
+    }
+    
+}
+@media screen and (max-width: 1040px) {
+    
+    .checkout{
+      width: 90%;
     }
     
 }

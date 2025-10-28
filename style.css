@@ -247,7 +247,7 @@ input:-webkit-autofill:active {
 .float-right {
     float: right;
 }
-.btn-add{
+/* .btn-add{
     width: 30px;
     height: 30px;
     border-radius: 50px;
@@ -259,7 +259,7 @@ input:-webkit-autofill:active {
     color: white;
     font-size: 20px;
     border: none;
-}
+} */
 @media screen and (max-width: 1000px) {
     .container {
         padding-left: 10px;
@@ -361,6 +361,7 @@ input:-webkit-autofill:active {
   border: none;
   cursor: pointer;
 }
+
 
 .quantity-selector {
   display: flex;

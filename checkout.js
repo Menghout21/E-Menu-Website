@@ -92,6 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Disable button if cart is empty
         placeOrderBtn.disabled = cart.length === 0;
+        placeOrderBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                window.location.href = 'index.html'; 
+            }
+        })
     }
 
 
